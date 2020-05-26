@@ -1,0 +1,9 @@
+C:\GitHub\AutoLotWorkshop\Initial\AutoLot.Dal.Models\bin\Release\netcoreapp3.1\AutoLot.Dal.Models.deps.json
+C:\GitHub\AutoLotWorkshop\Initial\AutoLot.Dal.Models\bin\Release\netcoreapp3.1\AutoLot.Dal.Models.dll
+C:\GitHub\AutoLotWorkshop\Initial\AutoLot.Dal.Models\bin\Release\netcoreapp3.1\AutoLot.Dal.Models.pdb
+C:\GitHub\AutoLotWorkshop\Initial\AutoLot.Dal.Models\obj\Release\netcoreapp3.1\AutoLot.Dal.Models.csprojAssemblyReference.cache
+C:\GitHub\AutoLotWorkshop\Initial\AutoLot.Dal.Models\obj\Release\netcoreapp3.1\AutoLot.Dal.Models.AssemblyInfoInputs.cache
+C:\GitHub\AutoLotWorkshop\Initial\AutoLot.Dal.Models\obj\Release\netcoreapp3.1\AutoLot.Dal.Models.AssemblyInfo.cs
+C:\GitHub\AutoLotWorkshop\Initial\AutoLot.Dal.Models\obj\Release\netcoreapp3.1\AutoLot.Dal.Models.csproj.CoreCompileInputs.cache
+C:\GitHub\AutoLotWorkshop\Initial\AutoLot.Dal.Models\obj\Release\netcoreapp3.1\AutoLot.Dal.Models.dll
+C:\GitHub\AutoLotWorkshop\Initial\AutoLot.Dal.Models\obj\Release\netcoreapp3.1\AutoLot.Dal.Models.pdb

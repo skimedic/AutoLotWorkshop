@@ -1,0 +1,241 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\GitHub\\presentations\\DOTNETCORE\\ASP.NETCore\\AutoLot\\AutoLotDal.Tests\\AutoLotDal.Tests.csproj": {}
+  },
+  "projects": {
+    "C:\\GitHub\\presentations\\DOTNETCORE\\ASP.NETCore\\AutoLot\\AutoLotDal.Models\\AutoLot.Dal.Models.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\GitHub\\presentations\\DOTNETCORE\\ASP.NETCore\\AutoLot\\AutoLotDal.Models\\AutoLot.Dal.Models.csproj",
+        "projectName": "AutoLot.Dal.Models",
+        "projectPath": "C:\\GitHub\\presentations\\DOTNETCORE\\ASP.NETCore\\AutoLot\\AutoLotDal.Models\\AutoLot.Dal.Models.csproj",
+        "packagesPath": "C:\\Users\\japik\\.nuget\\packages\\",
+        "outputPath": "C:\\GitHub\\presentations\\DOTNETCORE\\ASP.NETCore\\AutoLot\\AutoLotDal.Models\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\japik\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress .NET Core Desktop 19.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress .NET Core Desktop 20.1.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 20.1.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\DevExpress 19.2\\.NET Core Desktop Libraries\\System\\Components\\Packages": {},
+          "C:\\Program Files (x86)\\DevExpress 19.2\\Components\\System\\Components\\Packages": {},
+          "C:\\Program Files (x86)\\DevExpress 20.1\\.NET Core Desktop Libraries\\System\\Components\\Packages": {},
+          "C:\\Program Files (x86)\\DevExpress 20.1\\Components\\System\\Components\\Packages": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.devexpress.com/D9Odfr48aulBbBkNdSxXLtTa5aRcoEja8caeHI3333u6T4Yb7D/api": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\GitHub\\presentations\\DOTNETCORE\\ASP.NETCore\\AutoLot\\AutoLotDal.Tests\\AutoLotDal.Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\GitHub\\presentations\\DOTNETCORE\\ASP.NETCore\\AutoLot\\AutoLotDal.Tests\\AutoLotDal.Tests.csproj",
+        "projectName": "AutoLotDal.Tests",
+        "projectPath": "C:\\GitHub\\presentations\\DOTNETCORE\\ASP.NETCore\\AutoLot\\AutoLotDal.Tests\\AutoLotDal.Tests.csproj",
+        "packagesPath": "C:\\Users\\japik\\.nuget\\packages\\",
+        "outputPath": "C:\\GitHub\\presentations\\DOTNETCORE\\ASP.NETCore\\AutoLot\\AutoLotDal.Tests\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\japik\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress .NET Core Desktop 19.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress .NET Core Desktop 20.1.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 20.1.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\DevExpress 19.2\\.NET Core Desktop Libraries\\System\\Components\\Packages": {},
+          "C:\\Program Files (x86)\\DevExpress 19.2\\Components\\System\\Components\\Packages": {},
+          "C:\\Program Files (x86)\\DevExpress 20.1\\.NET Core Desktop Libraries\\System\\Components\\Packages": {},
+          "C:\\Program Files (x86)\\DevExpress 20.1\\Components\\System\\Components\\Packages": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.devexpress.com/D9Odfr48aulBbBkNdSxXLtTa5aRcoEja8caeHI3333u6T4Yb7D/api": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\GitHub\\presentations\\DOTNETCORE\\ASP.NETCore\\AutoLot\\AutoLotDal.Models\\AutoLot.Dal.Models.csproj": {
+                "projectPath": "C:\\GitHub\\presentations\\DOTNETCORE\\ASP.NETCore\\AutoLot\\AutoLotDal.Models\\AutoLot.Dal.Models.csproj"
+              },
+              "C:\\GitHub\\presentations\\DOTNETCORE\\ASP.NETCore\\AutoLot\\AutoLotDal\\AutoLot.Dal.csproj": {
+                "projectPath": "C:\\GitHub\\presentations\\DOTNETCORE\\ASP.NETCore\\AutoLot\\AutoLotDal\\AutoLot.Dal.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.5.0, )"
+            },
+            "coverlet.collector": {
+              "target": "Package",
+              "version": "[1.2.0, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.0, )"
+            },
+            "xunit.runner.visualstudio": {
+              "target": "Package",
+              "version": "[2.4.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\GitHub\\presentations\\DOTNETCORE\\ASP.NETCore\\AutoLot\\AutoLotDal\\AutoLot.Dal.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\GitHub\\presentations\\DOTNETCORE\\ASP.NETCore\\AutoLot\\AutoLotDal\\AutoLot.Dal.csproj",
+        "projectName": "AutoLot.Dal",
+        "projectPath": "C:\\GitHub\\presentations\\DOTNETCORE\\ASP.NETCore\\AutoLot\\AutoLotDal\\AutoLot.Dal.csproj",
+        "packagesPath": "C:\\Users\\japik\\.nuget\\packages\\",
+        "outputPath": "C:\\GitHub\\presentations\\DOTNETCORE\\ASP.NETCore\\AutoLot\\AutoLotDal\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\japik\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress .NET Core Desktop 19.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress .NET Core Desktop 20.1.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 20.1.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\DevExpress 19.2\\.NET Core Desktop Libraries\\System\\Components\\Packages": {},
+          "C:\\Program Files (x86)\\DevExpress 19.2\\Components\\System\\Components\\Packages": {},
+          "C:\\Program Files (x86)\\DevExpress 20.1\\.NET Core Desktop Libraries\\System\\Components\\Packages": {},
+          "C:\\Program Files (x86)\\DevExpress 20.1\\Components\\System\\Components\\Packages": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.devexpress.com/D9Odfr48aulBbBkNdSxXLtTa5aRcoEja8caeHI3333u6T4Yb7D/api": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\GitHub\\presentations\\DOTNETCORE\\ASP.NETCore\\AutoLot\\AutoLotDal.Models\\AutoLot.Dal.Models.csproj": {
+                "projectPath": "C:\\GitHub\\presentations\\DOTNETCORE\\ASP.NETCore\\AutoLot\\AutoLotDal.Models\\AutoLot.Dal.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
