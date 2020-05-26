@@ -1,9 +1,0 @@
-C:\GitHub\Books\csharp8-wf\Code\Chapter_22\AutoLotDal\AutoLotDal.Models\bin\Debug\netcoreapp3.1\AutoLotDal.Models.deps.json
-C:\GitHub\Books\csharp8-wf\Code\Chapter_22\AutoLotDal\AutoLotDal.Models\bin\Debug\netcoreapp3.1\AutoLotDal.Models.dll
-C:\GitHub\Books\csharp8-wf\Code\Chapter_22\AutoLotDal\AutoLotDal.Models\bin\Debug\netcoreapp3.1\AutoLotDal.Models.pdb
-C:\GitHub\Books\csharp8-wf\Code\Chapter_22\AutoLotDal\AutoLotDal.Models\obj\Debug\netcoreapp3.1\AutoLotDal.Models.csprojAssemblyReference.cache
-C:\GitHub\Books\csharp8-wf\Code\Chapter_22\AutoLotDal\AutoLotDal.Models\obj\Debug\netcoreapp3.1\AutoLotDal.Models.csproj.CoreCompileInputs.cache
-C:\GitHub\Books\csharp8-wf\Code\Chapter_22\AutoLotDal\AutoLotDal.Models\obj\Debug\netcoreapp3.1\AutoLotDal.Models.AssemblyInfoInputs.cache
-C:\GitHub\Books\csharp8-wf\Code\Chapter_22\AutoLotDal\AutoLotDal.Models\obj\Debug\netcoreapp3.1\AutoLotDal.Models.AssemblyInfo.cs
-C:\GitHub\Books\csharp8-wf\Code\Chapter_22\AutoLotDal\AutoLotDal.Models\obj\Debug\netcoreapp3.1\AutoLotDal.Models.dll
-C:\GitHub\Books\csharp8-wf\Code\Chapter_22\AutoLotDal\AutoLotDal.Models\obj\Debug\netcoreapp3.1\AutoLotDal.Models.pdb
