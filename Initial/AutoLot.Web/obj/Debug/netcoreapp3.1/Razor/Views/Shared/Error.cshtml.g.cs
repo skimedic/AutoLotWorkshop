@@ -26,8 +26,22 @@ using AutoLot.Web.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "C:\GitHub\AutoLotWorkshop\Initial\AutoLot.Web\Views\_ViewImports.cshtml"
+using AutoLot.Dal.Models.Entities;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "C:\GitHub\AutoLotWorkshop\Initial\AutoLot.Web\Views\_ViewImports.cshtml"
+using AutoLot.Web.ConfigSettings;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d6a5625cc8fb4476f348b0fe9041c550465d8bf9", @"/Views/Shared/Error.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9d41b1a387658e9638a21045439f3ef8f7864a30", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"cdbe96e5ff4d9ac741a3fa0752194c47ae88c2c6", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Error : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<ErrorViewModel>
     {
         #pragma warning disable 1998

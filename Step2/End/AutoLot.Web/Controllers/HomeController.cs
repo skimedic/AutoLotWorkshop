@@ -33,7 +33,6 @@ namespace AutoLot.Web.Controllers
         }
 
         [HttpGet]
-        [HttpGet]
         public IActionResult RazorSyntax([FromServices] ICarRepo carRepo)
         {
             return View();

@@ -14458,6 +14458,123 @@
       },
       {
         "Kind": "ITagHelper",
+        "Name": "AutoLot.Web.TagHelpers.CarDetailsTagHelper",
+        "AssemblyName": "AutoLot.Web",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": false,
+        "TagMatchingRules": [
+          {
+            "TagName": "car-details",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "ITagHelper",
+            "Name": "car-id",
+            "TypeName": "System.Int32",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "CarId"
+            },
+            "BoundAttributeParameters": []
+          }
+        ],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "ITagHelper",
+          "Common.TypeName": "AutoLot.Web.TagHelpers.CarDetailsTagHelper"
+        }
+      },
+      {
+        "Kind": "ITagHelper",
+        "Name": "AutoLot.Web.TagHelpers.DeleteCarTagHelper",
+        "AssemblyName": "AutoLot.Web",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": false,
+        "TagMatchingRules": [
+          {
+            "TagName": "delete-car",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "ITagHelper",
+            "Name": "car-id",
+            "TypeName": "System.Int32",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "CarId"
+            },
+            "BoundAttributeParameters": []
+          }
+        ],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "ITagHelper",
+          "Common.TypeName": "AutoLot.Web.TagHelpers.DeleteCarTagHelper"
+        }
+      },
+      {
+        "Kind": "ITagHelper",
+        "Name": "AutoLot.Web.TagHelpers.EditCarTagHelper",
+        "AssemblyName": "AutoLot.Web",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": false,
+        "TagMatchingRules": [
+          {
+            "TagName": "edit-car",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "ITagHelper",
+            "Name": "car-id",
+            "TypeName": "System.Int32",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "CarId"
+            },
+            "BoundAttributeParameters": []
+          }
+        ],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "ITagHelper",
+          "Common.TypeName": "AutoLot.Web.TagHelpers.EditCarTagHelper"
+        }
+      },
+      {
+        "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.Razor",
         "Documentation": "\n            <summary>\n            <see cref=\"T:Microsoft.AspNetCore.Razor.TagHelpers.ITagHelper\" /> implementation targeting elements containing attributes with URL expected values.\n            </summary>\n            <remarks>Resolves URLs starting with '~/' (relative to the application's 'webroot' setting) that are not\n            targeted by other <see cref=\"T:Microsoft.AspNetCore.Razor.TagHelpers.ITagHelper\" />s. Runs prior to other <see cref=\"T:Microsoft.AspNetCore.Razor.TagHelpers.ITagHelper\" />s to ensure\n            application-relative URLs are resolved.</remarks>\n        ",
@@ -17868,6 +17985,940 @@
         }
       },
       {
+        "Kind": "ITagHelper",
+        "Name": "WebOptimizer.TagHelpersDynamic.LinkTagHelper",
+        "AssemblyName": "WebOptimizer.Core",
+        "Documentation": "\n            <summary>\n            <see cref=\"T:Microsoft.AspNetCore.Razor.TagHelpers.ITagHelper\" /> implementation targeting &lt;link&gt; elements that supports fallback href paths.\n            </summary>\n            <remarks>\n            The tag helper won't process for cases with just the 'href' attribute.\n            </remarks>\n        ",
+        "TagOutputHint": null,
+        "CaseSensitive": false,
+        "TagMatchingRules": [
+          {
+            "TagName": "link",
+            "ParentTag": null,
+            "TagStructure": 2,
+            "Attributes": [
+              {
+                "Name": "asp-href-include",
+                "NameComparison": 0,
+                "Value": null,
+                "ValueComparison": 0,
+                "Diagnostics": [],
+                "Metadata": {}
+              }
+            ],
+            "Diagnostics": []
+          },
+          {
+            "TagName": "link",
+            "ParentTag": null,
+            "TagStructure": 2,
+            "Attributes": [
+              {
+                "Name": "asp-href-exclude",
+                "NameComparison": 0,
+                "Value": null,
+                "ValueComparison": 0,
+                "Diagnostics": [],
+                "Metadata": {}
+              }
+            ],
+            "Diagnostics": []
+          },
+          {
+            "TagName": "link",
+            "ParentTag": null,
+            "TagStructure": 2,
+            "Attributes": [
+              {
+                "Name": "asp-fallback-href",
+                "NameComparison": 0,
+                "Value": null,
+                "ValueComparison": 0,
+                "Diagnostics": [],
+                "Metadata": {}
+              }
+            ],
+            "Diagnostics": []
+          },
+          {
+            "TagName": "link",
+            "ParentTag": null,
+            "TagStructure": 2,
+            "Attributes": [
+              {
+                "Name": "asp-fallback-href-include",
+                "NameComparison": 0,
+                "Value": null,
+                "ValueComparison": 0,
+                "Diagnostics": [],
+                "Metadata": {}
+              }
+            ],
+            "Diagnostics": []
+          },
+          {
+            "TagName": "link",
+            "ParentTag": null,
+            "TagStructure": 2,
+            "Attributes": [
+              {
+                "Name": "asp-fallback-href-exclude",
+                "NameComparison": 0,
+                "Value": null,
+                "ValueComparison": 0,
+                "Diagnostics": [],
+                "Metadata": {}
+              }
+            ],
+            "Diagnostics": []
+          },
+          {
+            "TagName": "link",
+            "ParentTag": null,
+            "TagStructure": 2,
+            "Attributes": [
+              {
+                "Name": "asp-fallback-test-class",
+                "NameComparison": 0,
+                "Value": null,
+                "ValueComparison": 0,
+                "Diagnostics": [],
+                "Metadata": {}
+              }
+            ],
+            "Diagnostics": []
+          },
+          {
+            "TagName": "link",
+            "ParentTag": null,
+            "TagStructure": 2,
+            "Attributes": [
+              {
+                "Name": "asp-fallback-test-property",
+                "NameComparison": 0,
+                "Value": null,
+                "ValueComparison": 0,
+                "Diagnostics": [],
+                "Metadata": {}
+              }
+            ],
+            "Diagnostics": []
+          },
+          {
+            "TagName": "link",
+            "ParentTag": null,
+            "TagStructure": 2,
+            "Attributes": [
+              {
+                "Name": "asp-fallback-test-value",
+                "NameComparison": 0,
+                "Value": null,
+                "ValueComparison": 0,
+                "Diagnostics": [],
+                "Metadata": {}
+              }
+            ],
+            "Diagnostics": []
+          },
+          {
+            "TagName": "link",
+            "ParentTag": null,
+            "TagStructure": 2,
+            "Attributes": [
+              {
+                "Name": "asp-append-version",
+                "NameComparison": 0,
+                "Value": null,
+                "ValueComparison": 0,
+                "Diagnostics": [],
+                "Metadata": {}
+              }
+            ],
+            "Diagnostics": []
+          },
+          {
+            "TagName": "link",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [
+              {
+                "Name": "asp-bundle-key",
+                "NameComparison": 0,
+                "Value": null,
+                "ValueComparison": 0,
+                "Diagnostics": [],
+                "Metadata": {}
+              }
+            ],
+            "Diagnostics": []
+          },
+          {
+            "TagName": "link",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [
+              {
+                "Name": "asp-bundle-dest-key",
+                "NameComparison": 0,
+                "Value": null,
+                "ValueComparison": 0,
+                "Diagnostics": [],
+                "Metadata": {}
+              }
+            ],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "ITagHelper",
+            "Name": "asp-bundle-key",
+            "TypeName": "System.String",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": "\n             <summary>\n            \n             </summary>\n        ",
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "BundleKey"
+            },
+            "BoundAttributeParameters": []
+          },
+          {
+            "Kind": "ITagHelper",
+            "Name": "asp-bundle-dest-key",
+            "TypeName": "System.String",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": "\n             <summary>\n            \n             </summary>\n        ",
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "BundleDestinationKey"
+            },
+            "BoundAttributeParameters": []
+          },
+          {
+            "Kind": "ITagHelper",
+            "Name": "asp-append-version",
+            "TypeName": "System.Boolean?",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": "\n            <summary>\n            Value indicating if file version should be appended to the href urls.\n            </summary>\n            <remarks>\n            If <c>true</c> then a query string \"v\" with the encoded content of the file is added.\n            </remarks>\n        ",
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "AppendVersion"
+            },
+            "BoundAttributeParameters": []
+          },
+          {
+            "Kind": "ITagHelper",
+            "Name": "asp-fallback-href",
+            "TypeName": "System.String",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": "\n            <summary>\n            The URL of a CSS stylesheet to fallback to in the case the primary one fails.\n            </summary>\n        ",
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "FallbackHref"
+            },
+            "BoundAttributeParameters": []
+          },
+          {
+            "Kind": "ITagHelper",
+            "Name": "asp-fallback-href-exclude",
+            "TypeName": "System.String",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": "\n            <summary>\n            A comma separated list of globbed file patterns of CSS stylesheets to exclude from the fallback list, in\n            the case the primary one fails.\n            The glob patterns are assessed relative to the application's 'webroot' setting.\n            Must be used in conjunction with <see cref=\"P:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.FallbackHrefInclude\" />.\n            </summary>\n        ",
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "FallbackHrefExclude"
+            },
+            "BoundAttributeParameters": []
+          },
+          {
+            "Kind": "ITagHelper",
+            "Name": "asp-fallback-href-include",
+            "TypeName": "System.String",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": "\n            <summary>\n            A comma separated list of globbed file patterns of CSS stylesheets to fallback to in the case the primary\n            one fails.\n            The glob patterns are assessed relative to the application's 'webroot' setting.\n            </summary>\n        ",
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "FallbackHrefInclude"
+            },
+            "BoundAttributeParameters": []
+          },
+          {
+            "Kind": "ITagHelper",
+            "Name": "asp-fallback-test-class",
+            "TypeName": "System.String",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": "\n            <summary>\n            The class name defined in the stylesheet to use for the fallback test.\n            Must be used in conjunction with <see cref=\"P:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.FallbackTestProperty\" /> and <see cref=\"P:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.FallbackTestValue\" />,\n            and either <see cref=\"P:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.FallbackHref\" /> or <see cref=\"P:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.FallbackHrefInclude\" />.\n            </summary>\n        ",
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "FallbackTestClass"
+            },
+            "BoundAttributeParameters": []
+          },
+          {
+            "Kind": "ITagHelper",
+            "Name": "asp-fallback-test-property",
+            "TypeName": "System.String",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": "\n            <summary>\n            The CSS property name to use for the fallback test.\n            Must be used in conjunction with <see cref=\"P:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.FallbackTestClass\" /> and <see cref=\"P:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.FallbackTestValue\" />,\n            and either <see cref=\"P:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.FallbackHref\" /> or <see cref=\"P:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.FallbackHrefInclude\" />.\n            </summary>\n        ",
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "FallbackTestProperty"
+            },
+            "BoundAttributeParameters": []
+          },
+          {
+            "Kind": "ITagHelper",
+            "Name": "asp-fallback-test-value",
+            "TypeName": "System.String",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": "\n            <summary>\n            The CSS property value to use for the fallback test.\n            Must be used in conjunction with <see cref=\"P:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.FallbackTestClass\" /> and <see cref=\"P:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.FallbackTestProperty\" />,\n            and either <see cref=\"P:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.FallbackHref\" /> or <see cref=\"P:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.FallbackHrefInclude\" />.\n            </summary>\n        ",
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "FallbackTestValue"
+            },
+            "BoundAttributeParameters": []
+          },
+          {
+            "Kind": "ITagHelper",
+            "Name": "href",
+            "TypeName": "System.String",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": "\n            <summary>\n            Address of the linked resource.\n            </summary>\n            <remarks>\n            Passed through to the generated HTML in all cases.\n            </remarks>\n        ",
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "Href"
+            },
+            "BoundAttributeParameters": []
+          },
+          {
+            "Kind": "ITagHelper",
+            "Name": "asp-href-exclude",
+            "TypeName": "System.String",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": "\n            <summary>\n            A comma separated list of globbed file patterns of CSS stylesheets to exclude from loading.\n            The glob patterns are assessed relative to the application's 'webroot' setting.\n            Must be used in conjunction with <see cref=\"P:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.HrefInclude\" />.\n            </summary>\n        ",
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "HrefExclude"
+            },
+            "BoundAttributeParameters": []
+          },
+          {
+            "Kind": "ITagHelper",
+            "Name": "asp-href-include",
+            "TypeName": "System.String",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": "\n            <summary>\n            A comma separated list of globbed file patterns of CSS stylesheets to load.\n            The glob patterns are assessed relative to the application's 'webroot' setting.\n            </summary>\n        ",
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "HrefInclude"
+            },
+            "BoundAttributeParameters": []
+          },
+          {
+            "Kind": "ITagHelper",
+            "Name": "asp-suppress-fallback-integrity",
+            "TypeName": "System.Boolean",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": "\n            <summary>\n            Boolean value that determines if an integrity hash will be compared with <see cref=\"P:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.FallbackHref\" /> value.\n            </summary>\n        ",
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "SuppressFallbackIntegrity"
+            },
+            "BoundAttributeParameters": []
+          }
+        ],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "ITagHelper",
+          "Common.TypeName": "WebOptimizer.TagHelpersDynamic.LinkTagHelper"
+        }
+      },
+      {
+        "Kind": "ITagHelper",
+        "Name": "WebOptimizer.TagHelpersDynamic.ScriptTagHelper",
+        "AssemblyName": "WebOptimizer.Core",
+        "Documentation": "\n            <summary>\n            <see cref=\"T:Microsoft.AspNetCore.Razor.TagHelpers.ITagHelper\" /> implementation targeting &lt;script&gt; elements that supports fallback src paths.\n            </summary>\n            <remarks>\n            The tag helper won't process for cases with just the 'src' attribute.\n            </remarks>\n        ",
+        "TagOutputHint": null,
+        "CaseSensitive": false,
+        "TagMatchingRules": [
+          {
+            "TagName": "script",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [
+              {
+                "Name": "asp-src-include",
+                "NameComparison": 0,
+                "Value": null,
+                "ValueComparison": 0,
+                "Diagnostics": [],
+                "Metadata": {}
+              }
+            ],
+            "Diagnostics": []
+          },
+          {
+            "TagName": "script",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [
+              {
+                "Name": "asp-src-exclude",
+                "NameComparison": 0,
+                "Value": null,
+                "ValueComparison": 0,
+                "Diagnostics": [],
+                "Metadata": {}
+              }
+            ],
+            "Diagnostics": []
+          },
+          {
+            "TagName": "script",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [
+              {
+                "Name": "asp-fallback-src",
+                "NameComparison": 0,
+                "Value": null,
+                "ValueComparison": 0,
+                "Diagnostics": [],
+                "Metadata": {}
+              }
+            ],
+            "Diagnostics": []
+          },
+          {
+            "TagName": "script",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [
+              {
+                "Name": "asp-fallback-src-include",
+                "NameComparison": 0,
+                "Value": null,
+                "ValueComparison": 0,
+                "Diagnostics": [],
+                "Metadata": {}
+              }
+            ],
+            "Diagnostics": []
+          },
+          {
+            "TagName": "script",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [
+              {
+                "Name": "asp-fallback-src-exclude",
+                "NameComparison": 0,
+                "Value": null,
+                "ValueComparison": 0,
+                "Diagnostics": [],
+                "Metadata": {}
+              }
+            ],
+            "Diagnostics": []
+          },
+          {
+            "TagName": "script",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [
+              {
+                "Name": "asp-fallback-test",
+                "NameComparison": 0,
+                "Value": null,
+                "ValueComparison": 0,
+                "Diagnostics": [],
+                "Metadata": {}
+              }
+            ],
+            "Diagnostics": []
+          },
+          {
+            "TagName": "script",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [
+              {
+                "Name": "asp-append-version",
+                "NameComparison": 0,
+                "Value": null,
+                "ValueComparison": 0,
+                "Diagnostics": [],
+                "Metadata": {}
+              }
+            ],
+            "Diagnostics": []
+          },
+          {
+            "TagName": "script",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [
+              {
+                "Name": "asp-bundle-key",
+                "NameComparison": 0,
+                "Value": null,
+                "ValueComparison": 0,
+                "Diagnostics": [],
+                "Metadata": {}
+              }
+            ],
+            "Diagnostics": []
+          },
+          {
+            "TagName": "script",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [
+              {
+                "Name": "asp-bundle-dest-key",
+                "NameComparison": 0,
+                "Value": null,
+                "ValueComparison": 0,
+                "Diagnostics": [],
+                "Metadata": {}
+              }
+            ],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "ITagHelper",
+            "Name": "asp-bundle-key",
+            "TypeName": "System.String",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": "\n             <summary>\n            \n             </summary>\n        ",
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "BundleKey"
+            },
+            "BoundAttributeParameters": []
+          },
+          {
+            "Kind": "ITagHelper",
+            "Name": "asp-bundle-dest-key",
+            "TypeName": "System.String",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": "\n             <summary>\n            \n             </summary>\n        ",
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "BundleDestinationKey"
+            },
+            "BoundAttributeParameters": []
+          },
+          {
+            "Kind": "ITagHelper",
+            "Name": "asp-append-version",
+            "TypeName": "System.Boolean?",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": "\n            <summary>\n            Value indicating if file version should be appended to src urls.\n            </summary>\n            <remarks>\n            A query string \"v\" with the encoded content of the file is added.\n            </remarks>\n        ",
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "AppendVersion"
+            },
+            "BoundAttributeParameters": []
+          },
+          {
+            "Kind": "ITagHelper",
+            "Name": "asp-fallback-src",
+            "TypeName": "System.String",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": "\n            <summary>\n            The URL of a Script tag to fallback to in the case the primary one fails.\n            </summary>\n        ",
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "FallbackSrc"
+            },
+            "BoundAttributeParameters": []
+          },
+          {
+            "Kind": "ITagHelper",
+            "Name": "asp-fallback-src-exclude",
+            "TypeName": "System.String",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": "\n            <summary>\n            A comma separated list of globbed file patterns of JavaScript scripts to exclude from the fallback list, in\n            the case the primary one fails.\n            The glob patterns are assessed relative to the application's 'webroot' setting.\n            Must be used in conjunction with <see cref=\"P:Microsoft.AspNetCore.Mvc.TagHelpers.ScriptTagHelper.FallbackSrcInclude\" />.\n            </summary>\n        ",
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "FallbackSrcExclude"
+            },
+            "BoundAttributeParameters": []
+          },
+          {
+            "Kind": "ITagHelper",
+            "Name": "asp-fallback-src-include",
+            "TypeName": "System.String",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": "\n            <summary>\n            A comma separated list of globbed file patterns of JavaScript scripts to fallback to in the case the\n            primary one fails.\n            The glob patterns are assessed relative to the application's 'webroot' setting.\n            </summary>\n        ",
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "FallbackSrcInclude"
+            },
+            "BoundAttributeParameters": []
+          },
+          {
+            "Kind": "ITagHelper",
+            "Name": "asp-fallback-test",
+            "TypeName": "System.String",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": "\n            <summary>\n            The script method defined in the primary script to use for the fallback test.\n            </summary>\n        ",
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "FallbackTestExpression"
+            },
+            "BoundAttributeParameters": []
+          },
+          {
+            "Kind": "ITagHelper",
+            "Name": "src",
+            "TypeName": "System.String",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": "\n            <summary>\n            Address of the external script to use.\n            </summary>\n            <remarks>\n            Passed through to the generated HTML in all cases.\n            </remarks>\n        ",
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "Src"
+            },
+            "BoundAttributeParameters": []
+          },
+          {
+            "Kind": "ITagHelper",
+            "Name": "asp-src-exclude",
+            "TypeName": "System.String",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": "\n            <summary>\n            A comma separated list of globbed file patterns of JavaScript scripts to exclude from loading.\n            The glob patterns are assessed relative to the application's 'webroot' setting.\n            Must be used in conjunction with <see cref=\"P:Microsoft.AspNetCore.Mvc.TagHelpers.ScriptTagHelper.SrcInclude\" />.\n            </summary>\n        ",
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "SrcExclude"
+            },
+            "BoundAttributeParameters": []
+          },
+          {
+            "Kind": "ITagHelper",
+            "Name": "asp-src-include",
+            "TypeName": "System.String",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": "\n            <summary>\n            A comma separated list of globbed file patterns of JavaScript scripts to load.\n            The glob patterns are assessed relative to the application's 'webroot' setting.\n            </summary>\n        ",
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "SrcInclude"
+            },
+            "BoundAttributeParameters": []
+          },
+          {
+            "Kind": "ITagHelper",
+            "Name": "asp-suppress-fallback-integrity",
+            "TypeName": "System.Boolean",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": "\n            <summary>\n            Boolean value that determines if an integrity hash will be compared with <see cref=\"P:Microsoft.AspNetCore.Mvc.TagHelpers.ScriptTagHelper.FallbackSrc\" /> value.\n            </summary>\n        ",
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "SuppressFallbackIntegrity"
+            },
+            "BoundAttributeParameters": []
+          }
+        ],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "ITagHelper",
+          "Common.TypeName": "WebOptimizer.TagHelpersDynamic.ScriptTagHelper"
+        }
+      },
+      {
+        "Kind": "ITagHelper",
+        "Name": "WebOptimizer.Taghelpers.LinkInlineHrefTagHelper",
+        "AssemblyName": "WebOptimizer.Core",
+        "Documentation": "\n            <summary>\n            Tag helper for inlining CSS\n            </summary>\n        ",
+        "TagOutputHint": null,
+        "CaseSensitive": false,
+        "TagMatchingRules": [
+          {
+            "TagName": "link",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [
+              {
+                "Name": "inline",
+                "NameComparison": 0,
+                "Value": null,
+                "ValueComparison": 0,
+                "Diagnostics": [],
+                "Metadata": {}
+              },
+              {
+                "Name": "href",
+                "NameComparison": 0,
+                "Value": null,
+                "ValueComparison": 0,
+                "Diagnostics": [],
+                "Metadata": {}
+              }
+            ],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "ITagHelper",
+            "Name": "href",
+            "TypeName": "System.String",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": "\n            <summary>\n            Gets or sets the href attribute\n            </summary>\n        ",
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "Href"
+            },
+            "BoundAttributeParameters": []
+          }
+        ],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "ITagHelper",
+          "Common.TypeName": "WebOptimizer.Taghelpers.LinkInlineHrefTagHelper"
+        }
+      },
+      {
+        "Kind": "ITagHelper",
+        "Name": "WebOptimizer.Taghelpers.LinkTagHelper",
+        "AssemblyName": "WebOptimizer.Core",
+        "Documentation": "\n            <summary>\n            A TagHelper for hooking CSS bundles up to the HTML page.\n            </summary>\n        ",
+        "TagOutputHint": null,
+        "CaseSensitive": false,
+        "TagMatchingRules": [
+          {
+            "TagName": "link",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [
+              {
+                "Name": "href",
+                "NameComparison": 0,
+                "Value": null,
+                "ValueComparison": 0,
+                "Diagnostics": [],
+                "Metadata": {}
+              },
+              {
+                "Name": "rel",
+                "NameComparison": 0,
+                "Value": "stylesheet",
+                "ValueComparison": 1,
+                "Diagnostics": [],
+                "Metadata": {}
+              }
+            ],
+            "Diagnostics": []
+          },
+          {
+            "TagName": "link",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [
+              {
+                "Name": "href",
+                "NameComparison": 0,
+                "Value": null,
+                "ValueComparison": 0,
+                "Diagnostics": [],
+                "Metadata": {}
+              },
+              {
+                "Name": "rel",
+                "NameComparison": 0,
+                "Value": "preload",
+                "ValueComparison": 1,
+                "Diagnostics": [],
+                "Metadata": {}
+              }
+            ],
+            "Diagnostics": []
+          },
+          {
+            "TagName": "link",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [
+              {
+                "Name": "href",
+                "NameComparison": 0,
+                "Value": null,
+                "ValueComparison": 0,
+                "Diagnostics": [],
+                "Metadata": {}
+              },
+              {
+                "Name": "rel",
+                "NameComparison": 0,
+                "Value": "prefetch",
+                "ValueComparison": 1,
+                "Diagnostics": [],
+                "Metadata": {}
+              }
+            ],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "ITagHelper",
+          "Common.TypeName": "WebOptimizer.Taghelpers.LinkTagHelper"
+        }
+      },
+      {
+        "Kind": "ITagHelper",
+        "Name": "WebOptimizer.Taghelpers.ScriptInlineSrcTagHelper",
+        "AssemblyName": "WebOptimizer.Core",
+        "Documentation": "\n            <summary>\n            Tag helper for inlining CSS\n            </summary>\n        ",
+        "TagOutputHint": null,
+        "CaseSensitive": false,
+        "TagMatchingRules": [
+          {
+            "TagName": "script",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [
+              {
+                "Name": "inline",
+                "NameComparison": 0,
+                "Value": null,
+                "ValueComparison": 0,
+                "Diagnostics": [],
+                "Metadata": {}
+              }
+            ],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "ITagHelper",
+            "Name": "src",
+            "TypeName": "System.String",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": "\n            <summary>\n            Gets or sets the src attribute\n            </summary>\n        ",
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "Src"
+            },
+            "BoundAttributeParameters": []
+          }
+        ],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "ITagHelper",
+          "Common.TypeName": "WebOptimizer.Taghelpers.ScriptInlineSrcTagHelper"
+        }
+      },
+      {
+        "Kind": "ITagHelper",
+        "Name": "WebOptimizer.Taghelpers.ScriptTagHelper",
+        "AssemblyName": "WebOptimizer.Core",
+        "Documentation": "\n            <summary>\n            A TagHelper for hooking JavaScript bundles up to the HTML page.\n            </summary>\n        ",
+        "TagOutputHint": null,
+        "CaseSensitive": false,
+        "TagMatchingRules": [
+          {
+            "TagName": "script",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "ITagHelper",
+          "Common.TypeName": "WebOptimizer.Taghelpers.ScriptTagHelper"
+        }
+      },
+      {
+        "Kind": "MVC.ViewComponent",
+        "Name": "__Generated__MenuViewComponentTagHelper",
+        "AssemblyName": "AutoLot.Web",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": false,
+        "TagMatchingRules": [
+          {
+            "TagName": "vc:menu",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "ITagHelper",
+          "Common.TypeName": "__Generated__MenuViewComponentTagHelper",
+          "MVC.ViewComponent.Name": "Menu"
+        }
+      },
+      {
         "Kind": "Components.Bind",
         "Name": "Bind",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -20526,8 +21577,43 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\GitHub\\AutoLotWorkshop\\Initial\\AutoLot.Web\\Views\\Cars\\DisplayTemplates\\Car.cshtml",
+      "TargetPath": "Views\\Cars\\DisplayTemplates\\Car.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\GitHub\\AutoLotWorkshop\\Initial\\AutoLot.Web\\Views\\Cars\\Edit.cshtml",
+      "TargetPath": "Views\\Cars\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\GitHub\\AutoLotWorkshop\\Initial\\AutoLot.Web\\Views\\Cars\\ByMake.cshtml",
+      "TargetPath": "Views\\Cars\\ByMake.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\GitHub\\AutoLotWorkshop\\Initial\\AutoLot.Web\\Views\\Shared\\DisplayTemplates\\DateTime.cshtml",
+      "TargetPath": "Views\\Shared\\DisplayTemplates\\DateTime.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\GitHub\\AutoLotWorkshop\\Initial\\AutoLot.Web\\Views\\Shared\\Partials\\_Head.cshtml",
+      "TargetPath": "Views\\Shared\\Partials\\_Head.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\GitHub\\AutoLotWorkshop\\Initial\\AutoLot.Web\\Views\\Cars\\Create.cshtml",
+      "TargetPath": "Views\\Cars\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\GitHub\\AutoLotWorkshop\\Initial\\AutoLot.Web\\Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\GitHub\\AutoLotWorkshop\\Initial\\AutoLot.Web\\Views\\Cars\\Details.cshtml",
+      "TargetPath": "Views\\Cars\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -20536,8 +21622,33 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\GitHub\\AutoLotWorkshop\\Initial\\AutoLot.Web\\Views\\Cars\\Delete.cshtml",
+      "TargetPath": "Views\\Cars\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\GitHub\\AutoLotWorkshop\\Initial\\AutoLot.Web\\Views\\Home\\RazorSyntax.cshtml",
+      "TargetPath": "Views\\Home\\RazorSyntax.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\GitHub\\AutoLotWorkshop\\Initial\\AutoLot.Web\\Views\\Shared\\Partials\\_Menu.cshtml",
+      "TargetPath": "Views\\Shared\\Partials\\_Menu.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\GitHub\\AutoLotWorkshop\\Initial\\AutoLot.Web\\Views\\Shared\\Components\\Menu\\MenuView.cshtml",
+      "TargetPath": "Views\\Shared\\Components\\Menu\\MenuView.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\GitHub\\AutoLotWorkshop\\Initial\\AutoLot.Web\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\GitHub\\AutoLotWorkshop\\Initial\\AutoLot.Web\\Views\\Shared\\Partials\\_JavaScriptFiles.cshtml",
+      "TargetPath": "Views\\Shared\\Partials\\_JavaScriptFiles.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -20546,8 +21657,23 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\GitHub\\AutoLotWorkshop\\Initial\\AutoLot.Web\\Views\\Cars\\EditorTemplates\\Car.cshtml",
+      "TargetPath": "Views\\Cars\\EditorTemplates\\Car.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\GitHub\\AutoLotWorkshop\\Initial\\AutoLot.Web\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\GitHub\\AutoLotWorkshop\\Initial\\AutoLot.Web\\Views\\Cars\\Partials\\_CarListPartial.cshtml",
+      "TargetPath": "Views\\Cars\\Partials\\_CarListPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\GitHub\\AutoLotWorkshop\\Initial\\AutoLot.Web\\Views\\Cars\\Index.cshtml",
+      "TargetPath": "Views\\Cars\\Index.cshtml",
       "FileKind": "mvc"
     },
     {

@@ -33,12 +33,11 @@ namespace AutoLot.Web.Controllers
         }
 
         [HttpGet]
-        public IActionResult RazorSyntax([FromServices] ICarRepo carRepo)
+        public IActionResult RazorSyntax([FromServices] ICarRepo repo)
         {
-            var car = carRepo.Find(1);
-            return View(car);
+            var vm = repo.Find(1);
+            return View(vm);
         }
-
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

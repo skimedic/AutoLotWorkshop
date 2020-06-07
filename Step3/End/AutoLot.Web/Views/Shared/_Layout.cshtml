@@ -11,7 +11,7 @@
     @{
         if (Env.IsDevelopment() || Env.IsEnvironment("Local"))
         {
-            <p class="lead">Development</p>
+            <p class="lead">@Env.EnvironmentName</p>
         }
     }
     <partial name="Partials/_Menu"/>
