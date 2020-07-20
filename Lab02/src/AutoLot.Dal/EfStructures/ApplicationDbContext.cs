@@ -1,9 +1,7 @@
-﻿using System;
-using AutoLot.Models.Entities;
+﻿using AutoLot.Models.Entities;
 using AutoLot.Models.Entities.Owned;
 using AutoLot.Models.ViewModels;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace AutoLot.Dal.EfStructures
 {
@@ -14,48 +12,6 @@ namespace AutoLot.Dal.EfStructures
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
-            ChangeTracker.StateChanged += ChangeTracker_StateChanged;
-            ChangeTracker.Tracked += ChangeTracker_Tracked;
-        }
-
-        private void ChangeTracker_Tracked(object? sender, EntityTrackedEventArgs e)
-        {
-            var source = (e.FromQuery) ? "Database" : "Code";
-            if (e.Entry.Entity is Car c)
-            {
-                Console.WriteLine($"Blog entry {c.PetName} was added from {source}");
-            }
-
-        }
-
-        private void ChangeTracker_StateChanged(object? sender, EntityStateChangedEventArgs e)
-        {
-            if (e.Entry.Entity is Car c)
-            {
-                var action = string.Empty;
-                Console.WriteLine($"Blog {c.PetName} was {e.OldState} before the state changed to {e.NewState}");
-                switch (e.NewState)
-                {
-                    case EntityState.Added:
-                    case EntityState.Deleted:
-                    case EntityState.Modified:
-                    case EntityState.Unchanged:
-                        switch (e.OldState)
-                        {
-                            case EntityState.Added:
-                                action = "Added";
-                                break;
-                            case EntityState.Deleted:
-                                action = "Deleted";
-                                break;
-                            case EntityState.Modified:
-                                action = "Edited";
-                                break;
-                        }
-                        Console.WriteLine($"The object was {action}");
-                        break;
-                }
-            }
         }
 
         public DbSet<CreditRisk> CreditRisks { get; set; }
@@ -67,14 +23,10 @@ namespace AutoLot.Dal.EfStructures
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<CustomerOrderViewModel>(entity =>
-            {
-                entity.HasNoKey().ToView("CustomerOrderView", "dbo");
-            });
-
             modelBuilder.Entity<Car>(entity => {
                 entity.HasQueryFilter(c => c.MakeId == MakeId);
             });
+
             modelBuilder.Entity<CreditRisk>(entity =>
             {
                 entity.HasOne(d => d.CustomerNavigation)
@@ -116,6 +68,7 @@ namespace AutoLot.Dal.EfStructures
                         pd.Property(p => p.LastName).HasColumnName(nameof(Person.LastName));
                     });
             });
+
             modelBuilder.Entity<Make>(entity =>
               {
                   entity.HasMany(e => e.Cars)
@@ -139,6 +92,11 @@ namespace AutoLot.Dal.EfStructures
                     .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK_Orders_Customers");
                 entity.HasIndex(cr => new { cr.CustomerId, cr.CarId }).IsUnique(true);
+            });
+
+            modelBuilder.Entity<CustomerOrderViewModel>(entity =>
+            {
+                entity.HasNoKey().ToView("CustomerOrderView", "dbo");
             });
             base.OnModelCreating(modelBuilder);
         }
