@@ -1,3 +1,4 @@
+dotnet tool uninstall --global dotnet-ef
 dotnet tool install --global dotnet-ef
 
 dotnet ef dbcontext scaffold "server=.,5433;Database=AutoLot;User Id=sa;Password=P@ssw0rd;" Microsoft.EntityFrameworkCore.SqlServer -d -c ApplicationDbContext --context-dir EfStructures -o Models 

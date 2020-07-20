@@ -11,10 +11,10 @@ namespace AutoLot.Dal.Models.Entities
 
         [ForeignKey(nameof(CarId))]
         [InverseProperty(nameof(Car.Orders))]
-        public Car CarNavigation { get; set; }
+        public virtual Car? CarNavigation { get; set; }
 
         [ForeignKey(nameof(CustomerId))]
         [InverseProperty(nameof(Customer.Orders))]
-        public Customer CustomerNavigation { get; set; }
+        public virtual Customer? CustomerNavigation { get; set; }
     }
 }

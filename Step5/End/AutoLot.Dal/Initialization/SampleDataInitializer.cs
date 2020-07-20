@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using AutoLot.Dal.EfStructures;
+using AutoLot.Dal.Models.Entities;
 using AutoLot.Dal.Models.Entities.Base;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
@@ -25,7 +26,7 @@ namespace AutoLot.Dal.Initialization
             SeedData(context);
         }
 
-        public static void ClearDatabase(ApplicationDbContext context)
+        public static void ClearAndReseedDatabase(ApplicationDbContext context)
         {
             context.Database.Migrate();
             ClearData(context);
@@ -34,13 +35,20 @@ namespace AutoLot.Dal.Initialization
 
         internal static void ClearData(ApplicationDbContext context)
         {
-            var entities = new[] {"Order", "Customer", "Make", "Car", "CreditRisk"};
+            var entities = new[] { 
+                typeof(Order).FullName, 
+                typeof(Customer).FullName, 
+                typeof(Make).FullName, 
+                typeof(Car).FullName, 
+                typeof(CreditRisk).FullName 
+            };
             foreach (var entityName in entities)
             {
-                var entity = context.Model.FindEntityType($"AutoLotDal.Models.Entities.{entityName}");
+                var entity = context.Model.FindEntityType(entityName);
                 var tableName = entity.GetTableName();
                 var schemaName = entity.GetSchema();
                 context.Database.ExecuteSqlRaw($"DELETE FROM {schemaName}.{tableName}");
+                context.Database.ExecuteSqlRaw($"DBCC CHECKIDENT (\"{schemaName}.{tableName}\", RESEED, 1);");
             }
         }
 
@@ -48,6 +56,10 @@ namespace AutoLot.Dal.Initialization
         {
             foreach (var entity in context.Model.GetEntityTypes())
             {
+                if (entity.FindPrimaryKey()==null)
+                {
+                    continue;
+                }
                 var tableName = entity.GetTableName();
                 var schemaName = entity.GetSchema();
                 context.Database.ExecuteSqlRaw($"DBCC CHECKIDENT (\"{schemaName}.{tableName}\", RESEED, 1);");

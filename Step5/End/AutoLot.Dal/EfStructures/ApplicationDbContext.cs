@@ -1,5 +1,7 @@
 ﻿using System;
 using AutoLot.Dal.Models.Entities;
+using AutoLot.Dal.Models.Entities.Owned;
+using AutoLot.Dal.Models.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
@@ -7,6 +9,8 @@ namespace AutoLot.Dal.EfStructures
 {
     public sealed class ApplicationDbContext : DbContext
     {
+        public int MakeId { get; set; }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
@@ -14,7 +18,7 @@ namespace AutoLot.Dal.EfStructures
             ChangeTracker.Tracked += ChangeTracker_Tracked;
         }
 
-        private void ChangeTracker_Tracked(object sender, EntityTrackedEventArgs e)
+        private void ChangeTracker_Tracked(object? sender, EntityTrackedEventArgs e)
         {
             var source = (e.FromQuery) ? "Database" : "Code";
             if (e.Entry.Entity is Car c)
@@ -24,7 +28,7 @@ namespace AutoLot.Dal.EfStructures
 
         }
 
-        private void ChangeTracker_StateChanged(object sender, EntityStateChangedEventArgs e)
+        private void ChangeTracker_StateChanged(object? sender, EntityStateChangedEventArgs e)
         {
             if (e.Entry.Entity is Car c)
             {
@@ -59,26 +63,67 @@ namespace AutoLot.Dal.EfStructures
         public DbSet<Make> Makes { get; set; }
         public DbSet<Car> Cars { get; set; }
         public DbSet<Order> Orders { get; set; }
+        public DbSet<CustomerOrderViewModel> CustomerOrderViewModels { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<CustomerOrderViewModel>(entity =>
+            {
+                entity.HasNoKey().ToView("CustomerOrderView", "dbo");
+            });
+
+            modelBuilder.Entity<Car>(entity => {
+                entity.HasQueryFilter(c => c.MakeId == MakeId);
+            });
             modelBuilder.Entity<CreditRisk>(entity =>
             {
                 entity.HasOne(d => d.CustomerNavigation)
                     .WithMany(p => p.CreditRisks)
                     .HasForeignKey(d => d.CustomerId)
                     .HasConstraintName("FK_CreditRisks_Customers");
-                entity.HasIndex(cr => new {cr.FirstName, cr.LastName}).IsUnique(true);
+
+                entity
+                    .Property<string>(nameof(Person.FirstName))
+                    .HasColumnName(nameof(Person.FirstName))
+                    .HasMaxLength(50)
+                    .IsRequired(true);
+
+                entity
+                    .Property<string>(nameof(Person.LastName))
+                    .HasColumnName(nameof(Person.LastName))
+                    .HasMaxLength(50)
+                    .IsRequired(true);
+
+                entity.OwnsOne(o => o.PersonalInformation,
+                    pd =>
+                    {
+                        pd.Property<string>(nameof(Person.FirstName))
+                            .HasColumnName(nameof(Person.FirstName))
+                            .HasColumnType("nvarchar(50)");
+                        pd.Property<string>(nameof(Person.LastName))
+                            .HasColumnName(nameof(Person.LastName))
+                            .HasColumnType("nvarchar(50)");
+                    });
+                entity.HasIndex(nameof(Person.FirstName), nameof(Person.LastName)).IsUnique(true);
             });
 
-            modelBuilder.Entity<Make>(entity =>
+            modelBuilder.Entity<Customer>(entity =>
             {
-                entity.HasMany(e => e.Cars)
-                    .WithOne(c => c.MakeNavigation)
-                    .HasForeignKey(k => k.MakeId)
-                    .OnDelete(DeleteBehavior.Restrict)
-                    .HasConstraintName("FK_Make_Inventory");
+                entity.OwnsOne(o => o.PersonalInformation,
+                    pd =>
+                    {
+                        pd.Property(p => p.FirstName).HasColumnName(nameof(Person.FirstName));
+                        pd.Property(p => p.LastName).HasColumnName(nameof(Person.LastName));
+                    });
             });
+            modelBuilder.Entity<Make>(entity =>
+              {
+                  entity.HasMany(e => e.Cars)
+                      .WithOne(c => c.MakeNavigation)
+                      .HasForeignKey(k => k.MakeId)
+                      .OnDelete(DeleteBehavior.Restrict)
+                      .HasConstraintName("FK_Make_Inventory");
+              });
 
             modelBuilder.Entity<Order>(entity =>
             {
@@ -91,7 +136,9 @@ namespace AutoLot.Dal.EfStructures
                 entity.HasOne(d => d.CustomerNavigation)
                     .WithMany(p => p.Orders)
                     .HasForeignKey(d => d.CustomerId)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK_Orders_Customers");
+                entity.HasIndex(cr => new { cr.CustomerId, cr.CarId }).IsUnique(true);
             });
             base.OnModelCreating(modelBuilder);
         }

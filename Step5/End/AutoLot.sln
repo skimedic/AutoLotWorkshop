@@ -14,6 +14,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{4ED7DD38-A4DF-438F-837D-2D890BD23979}"
 	ProjectSection(SolutionItems) = preProject
 		Docker.txt = Docker.txt
+		Final.txt = Final.txt
 		Migrations.txt = Migrations.txt
 	EndProjectSection
 EndProject

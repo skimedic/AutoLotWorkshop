@@ -9,7 +9,7 @@ namespace AutoLot.Dal.Models.Entities.Base
         public int Id { get; set; }
 
         [Timestamp]
-        public byte[] TimeStamp { get; set; }
+        public byte[]? TimeStamp { get; set; }
 
     }
 }

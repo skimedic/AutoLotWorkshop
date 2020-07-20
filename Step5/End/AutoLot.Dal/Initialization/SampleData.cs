@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using AutoLot.Dal.Models.Entities;
+using AutoLot.Dal.Models.Entities.Owned;
 
 namespace AutoLot.Dal.Initialization
 {
@@ -8,11 +9,11 @@ namespace AutoLot.Dal.Initialization
         public static List<Customer> Customers =>
             new List<Customer>
             {
-                new Customer {Id = 1, FirstName = "Dave", LastName = "Brenner"},
-                new Customer {Id = 2, FirstName = "Matt", LastName = "Walton"},
-                new Customer {Id = 3, FirstName = "Steve", LastName = "Hagen"},
-                new Customer {Id = 4, FirstName = "Pat", LastName = "Walton"},
-                new Customer {Id = 5, FirstName = "Bad", LastName = "Customer"},
+                new Customer {Id = 1, PersonalInformation = new Person{FirstName = "Dave", LastName = "Brenner"}},
+                new Customer {Id = 2, PersonalInformation = new Person{FirstName = "Matt", LastName = "Walton"}},
+                new Customer {Id = 3, PersonalInformation = new Person{FirstName = "Steve", LastName = "Hagen"}},
+                new Customer {Id = 4, PersonalInformation = new Person{FirstName = "Pat", LastName = "Walton"}},
+                new Customer {Id = 5, PersonalInformation = new Person{FirstName = "Bad", LastName = "Customer"}},
             };
 
         public static List<Make> Makes => new List<Make>
@@ -51,8 +52,10 @@ namespace AutoLot.Dal.Initialization
             {
                 Id = 1,
                 CustomerId = Customers[4].Id,
-                FirstName = Customers[4].FirstName,
-                LastName = Customers[4].LastName,
+                PersonalInformation = new Person{
+                    FirstName = Customers[4].PersonalInformation.FirstName,
+                LastName = Customers[4].PersonalInformation.LastName
+                }
             }
         };
     }

@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 using AutoLot.Dal.Models.Entities.Base;
 
 namespace AutoLot.Dal.Models.Entities
@@ -14,17 +15,17 @@ namespace AutoLot.Dal.Models.Entities
 
         [ForeignKey(nameof(MakeId))]
         [DisplayName("Make")]
-        public Make MakeNavigation { get; set; }
+		[InverseProperty(nameof(Make.Cars))]
+        public Make? MakeNavigation { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        public string Color { get; set; }
+        [StringLength(50),Required] 
+        public string Color { get; set; } = "Gold";
 
-        [Required]
-        [StringLength(50)]
+        [StringLength(50), Required]
         [DisplayName("Pet Name")]
-        public string PetName { get; set; }
+        public string PetName { get; set; } = "My Precious";
 
+        [JsonIgnore]
         [InverseProperty(nameof(Order.CarNavigation))]
         public IEnumerable<Order> Orders { get; set; } = new List<Order>();
 

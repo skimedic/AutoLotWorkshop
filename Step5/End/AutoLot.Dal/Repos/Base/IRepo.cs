@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 namespace AutoLot.Dal.Repos.Base
 {
-    public interface IRepo<T>
+    public interface IRepo<T>: IDisposable 
     {
         int Add(T entity, bool persist = true);
         int AddRange(IEnumerable<T> entities, bool persist = true);
@@ -19,9 +19,7 @@ namespace AutoLot.Dal.Repos.Base
         T FindIgnoreQueryFilters(int id);
 
         IEnumerable<T> GetAll();
-        IEnumerable<T> GetAll(Expression<Func<T, object>> orderBy);
-        public IEnumerable<T> GetRange(IQueryable<T> query, int skip, int take);
-
+        IEnumerable<T> GetAllIgnoreQueryFilters();
         void ExecuteQuery(string sql, object[] sqlParametersObjects);
         int SaveChanges();
     }

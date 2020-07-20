@@ -15,7 +15,7 @@ namespace AutoLot.Dal.EfStructures.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.3")
+                .HasAnnotation("ProductVersion", "3.1.6")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -62,10 +62,14 @@ namespace AutoLot.Dal.EfStructures.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnName("FirstName")
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
                     b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnName("LastName")
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
@@ -79,8 +83,7 @@ namespace AutoLot.Dal.EfStructures.Migrations
                     b.HasIndex("CustomerId");
 
                     b.HasIndex("FirstName", "LastName")
-                        .IsUnique()
-                        .HasFilter("[FirstName] IS NOT NULL AND [LastName] IS NOT NULL");
+                        .IsUnique();
 
                     b.ToTable("CreditRisks","Dbo");
                 });
@@ -91,14 +94,6 @@ namespace AutoLot.Dal.EfStructures.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
 
                     b.Property<byte[]>("TimeStamp")
                         .IsConcurrencyToken()
@@ -118,6 +113,7 @@ namespace AutoLot.Dal.EfStructures.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
@@ -153,7 +149,8 @@ namespace AutoLot.Dal.EfStructures.Migrations
 
                     b.HasIndex("CarId");
 
-                    b.HasIndex("CustomerId");
+                    b.HasIndex("CustomerId", "CarId")
+                        .IsUnique();
 
                     b.ToTable("Orders","Dbo");
                 });
@@ -176,6 +173,63 @@ namespace AutoLot.Dal.EfStructures.Migrations
                         .HasConstraintName("FK_CreditRisks_Customers")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.OwnsOne("AutoLot.Dal.Models.Entities.Owned.Person", "PersonalInformation", b1 =>
+                        {
+                            b1.Property<int>("CreditRiskId")
+                                .ValueGeneratedOnAdd()
+                                .HasColumnType("int")
+                                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                            b1.Property<string>("FirstName")
+                                .IsRequired()
+                                .HasColumnName("FirstName")
+                                .HasColumnType("nvarchar(50)")
+                                .HasMaxLength(50);
+
+                            b1.Property<string>("LastName")
+                                .IsRequired()
+                                .HasColumnName("LastName")
+                                .HasColumnType("nvarchar(50)")
+                                .HasMaxLength(50);
+
+                            b1.HasKey("CreditRiskId");
+
+                            b1.ToTable("CreditRisks");
+
+                            b1.WithOwner()
+                                .HasForeignKey("CreditRiskId");
+                        });
+                });
+
+            modelBuilder.Entity("AutoLot.Dal.Models.Entities.Customer", b =>
+                {
+                    b.OwnsOne("AutoLot.Dal.Models.Entities.Owned.Person", "PersonalInformation", b1 =>
+                        {
+                            b1.Property<int>("CustomerId")
+                                .ValueGeneratedOnAdd()
+                                .HasColumnType("int")
+                                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                            b1.Property<string>("FirstName")
+                                .IsRequired()
+                                .HasColumnName("FirstName")
+                                .HasColumnType("nvarchar(50)")
+                                .HasMaxLength(50);
+
+                            b1.Property<string>("LastName")
+                                .IsRequired()
+                                .HasColumnName("LastName")
+                                .HasColumnType("nvarchar(50)")
+                                .HasMaxLength(50);
+
+                            b1.HasKey("CustomerId");
+
+                            b1.ToTable("Customers");
+
+                            b1.WithOwner()
+                                .HasForeignKey("CustomerId");
+                        });
                 });
 
             modelBuilder.Entity("AutoLot.Dal.Models.Entities.Order", b =>

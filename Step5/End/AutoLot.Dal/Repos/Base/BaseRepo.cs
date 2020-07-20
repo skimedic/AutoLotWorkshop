@@ -11,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage;
 
 namespace AutoLot.Dal.Repos.Base
 {
-    public class BaseRepo<T>:IRepo<T> where T: BaseEntity, new()
+    public abstract class BaseRepo<T>:IRepo<T> where T: BaseEntity, new()
     {
         private bool _isDisposed;
+        private readonly bool _disposeContext;
         public DbSet<T> Table { get; }
         public ApplicationDbContext Context { get; }
 
@@ -25,6 +26,7 @@ namespace AutoLot.Dal.Repos.Base
 
         protected BaseRepo(DbContextOptions<ApplicationDbContext> options) : this(new ApplicationDbContext(options))
         {
+            _disposeContext = true;
         }
 
         public void Dispose()
@@ -42,7 +44,10 @@ namespace AutoLot.Dal.Repos.Base
 
             if (disposing)
             {
-                Context.Dispose();
+                if (_disposeContext)
+                {
+                    Context.Dispose();
+                }
             }
             _isDisposed = true;
         }
@@ -61,10 +66,11 @@ namespace AutoLot.Dal.Repos.Base
             => Table.IgnoreQueryFilters().FirstOrDefault(x => x.Id == id);
         
         public virtual IEnumerable<T> GetAll() => Table;
-        public virtual IEnumerable<T> GetAll(Expression<Func<T, object>> orderBy)
-            => Table.OrderBy(orderBy);
-        public IEnumerable<T> GetRange(IQueryable<T> query, int skip, int take)
-            => query.Skip(skip).Take(take);
+        public virtual IEnumerable<T> GetAllIgnoreQueryFilters() => Table.IgnoreQueryFilters();
+
+        public void ExecuteQuery(string sql, object[] sqlParametersObjects)
+            => Context.Database.ExecuteSqlRaw(sql, sqlParametersObjects);
+
 
         public virtual int Add(T entity, bool persist = true)
         {
@@ -93,11 +99,8 @@ namespace AutoLot.Dal.Repos.Base
         public int Delete(int id, byte[] timeStamp, bool persist = true)
         {
             Context.Entry(new T {Id = id, TimeStamp = timeStamp}).State = EntityState.Deleted;
-            return SaveChanges();
+            return persist ? SaveChanges() : 0;
         }
-
-        public void ExecuteQuery(string sql, object[] sqlParametersObjects)
-            => Context.Database.ExecuteSqlRaw(sql, sqlParametersObjects);
 
         public virtual int Delete(T entity, bool persist = true)
         {

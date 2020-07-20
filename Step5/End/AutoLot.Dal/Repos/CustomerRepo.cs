@@ -19,6 +19,6 @@ namespace AutoLot.Dal.Repos
         }
 
         public override IEnumerable<Customer> GetAll()
-            => Table.Include(c => c.Orders).OrderBy(o => o.LastName);
+            => Table.Include(c => c.Orders).OrderBy(o => o.PersonalInformation.LastName);
     }
 }
