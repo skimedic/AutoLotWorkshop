@@ -21,7 +21,7 @@ namespace AutoLot.Dal.EfStructures.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("AutoLot.Dal.Models.Entities.Car", b =>
+            modelBuilder.Entity("AutoLot.Models.Entities.Car", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -53,7 +53,7 @@ namespace AutoLot.Dal.EfStructures.Migrations
                     b.ToTable("Inventory","Dbo");
                 });
 
-            modelBuilder.Entity("AutoLot.Dal.Models.Entities.CreditRisk", b =>
+            modelBuilder.Entity("AutoLot.Models.Entities.CreditRisk", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -90,7 +90,7 @@ namespace AutoLot.Dal.EfStructures.Migrations
                     b.ToTable("CreditRisks","Dbo");
                 });
 
-            modelBuilder.Entity("AutoLot.Dal.Models.Entities.Customer", b =>
+            modelBuilder.Entity("AutoLot.Models.Entities.Customer", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -107,7 +107,7 @@ namespace AutoLot.Dal.EfStructures.Migrations
                     b.ToTable("Customers","Dbo");
                 });
 
-            modelBuilder.Entity("AutoLot.Dal.Models.Entities.Make", b =>
+            modelBuilder.Entity("AutoLot.Models.Entities.Make", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -129,7 +129,7 @@ namespace AutoLot.Dal.EfStructures.Migrations
                     b.ToTable("Makes","dbo");
                 });
 
-            modelBuilder.Entity("AutoLot.Dal.Models.Entities.Order", b =>
+            modelBuilder.Entity("AutoLot.Models.Entities.Order", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -157,9 +157,9 @@ namespace AutoLot.Dal.EfStructures.Migrations
                     b.ToTable("Orders","Dbo");
                 });
 
-            modelBuilder.Entity("AutoLot.Dal.Models.Entities.Car", b =>
+            modelBuilder.Entity("AutoLot.Models.Entities.Car", b =>
                 {
-                    b.HasOne("AutoLot.Dal.Models.Entities.Make", "MakeNavigation")
+                    b.HasOne("AutoLot.Models.Entities.Make", "MakeNavigation")
                         .WithMany("Cars")
                         .HasForeignKey("MakeId")
                         .HasConstraintName("FK_Make_Inventory")
@@ -167,16 +167,16 @@ namespace AutoLot.Dal.EfStructures.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("AutoLot.Dal.Models.Entities.CreditRisk", b =>
+            modelBuilder.Entity("AutoLot.Models.Entities.CreditRisk", b =>
                 {
-                    b.HasOne("AutoLot.Dal.Models.Entities.Customer", "CustomerNavigation")
+                    b.HasOne("AutoLot.Models.Entities.Customer", "CustomerNavigation")
                         .WithMany("CreditRisks")
                         .HasForeignKey("CustomerId")
                         .HasConstraintName("FK_CreditRisks_Customers")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.OwnsOne("AutoLot.Dal.Models.Entities.Owned.Person", "PersonalInformation", b1 =>
+                    b.OwnsOne("AutoLot.Models.Entities.Owned.Person", "PersonalInformation", b1 =>
                         {
                             b1.Property<int>("CreditRiskId")
                                 .ValueGeneratedOnAdd()
@@ -204,9 +204,9 @@ namespace AutoLot.Dal.EfStructures.Migrations
                         });
                 });
 
-            modelBuilder.Entity("AutoLot.Dal.Models.Entities.Customer", b =>
+            modelBuilder.Entity("AutoLot.Models.Entities.Customer", b =>
                 {
-                    b.OwnsOne("AutoLot.Dal.Models.Entities.Owned.Person", "PersonalInformation", b1 =>
+                    b.OwnsOne("AutoLot.Models.Entities.Owned.Person", "PersonalInformation", b1 =>
                         {
                             b1.Property<int>("CustomerId")
                                 .ValueGeneratedOnAdd()
@@ -234,15 +234,15 @@ namespace AutoLot.Dal.EfStructures.Migrations
                         });
                 });
 
-            modelBuilder.Entity("AutoLot.Dal.Models.Entities.Order", b =>
+            modelBuilder.Entity("AutoLot.Models.Entities.Order", b =>
                 {
-                    b.HasOne("AutoLot.Dal.Models.Entities.Car", "CarNavigation")
+                    b.HasOne("AutoLot.Models.Entities.Car", "CarNavigation")
                         .WithMany("Orders")
                         .HasForeignKey("CarId")
                         .HasConstraintName("FK_Orders_Inventory")
                         .IsRequired();
 
-                    b.HasOne("AutoLot.Dal.Models.Entities.Customer", "CustomerNavigation")
+                    b.HasOne("AutoLot.Models.Entities.Customer", "CustomerNavigation")
                         .WithMany("Orders")
                         .HasForeignKey("CustomerId")
                         .HasConstraintName("FK_Orders_Customers")

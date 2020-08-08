@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using AutoLot.Dal.Models.Entities;
-using AutoLot.Dal.Models.Entities.Owned;
+using AutoLot.Models.Entities;
+using AutoLot.Models.Entities.Owned;
 
 namespace AutoLot.Dal.Initialization
 {

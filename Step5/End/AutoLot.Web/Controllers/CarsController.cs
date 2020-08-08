@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AutoLot.Dal.EfStructures;
-using AutoLot.Dal.Models.Entities;
+using AutoLot.Models.Entities;
 using AutoLot.Dal.Repos.Interfaces;
 
 namespace AutoLot.Web.Controllers

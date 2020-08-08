@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System;
 using System.Linq;
 using System.Linq.Expressions;
-using AutoLot.Dal.Models.Entities;
+using AutoLot.Models.Entities;
 using AutoLot.Dal.Tests.Base;
 using Xunit;
 

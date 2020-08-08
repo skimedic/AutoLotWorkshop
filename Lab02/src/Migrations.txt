@@ -8,9 +8,6 @@ dotnet ef dbcontext scaffold "server=.,5433;Database=AutoLot;User Id=sa;Password
 dotnet ef migrations add Initial -o EfStructures\Migrations -c AutoLot.Dal.EfStructures.ApplicationDbContext
 dotnet ef database update Initial -c AutoLot.Dal.EfStructures.ApplicationDbContext
 
-dotnet ef migrations add AddSQL -o EfStructures\Migrations -c AutoLot.Dal.EfStructures.ApplicationDbContext
-dotnet ef database update AddSQL -c AutoLot.Dal.EfStructures.ApplicationDbContext
-
 dotnet ef migrations remove
 
 

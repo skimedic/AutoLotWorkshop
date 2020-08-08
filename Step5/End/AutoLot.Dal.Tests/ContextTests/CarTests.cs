@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
-using AutoLot.Dal.Models.Entities;
+using AutoLot.Models.Entities;
 using AutoLot.Dal.Tests.Base;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;

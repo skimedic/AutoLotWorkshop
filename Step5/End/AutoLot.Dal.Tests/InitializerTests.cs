@@ -1,6 +1,6 @@
 using System.Linq;
 using AutoLot.Dal.Initialization;
-using AutoLot.Dal.Models.Entities;
+using AutoLot.Models.Entities;
 using AutoLot.Dal.Tests.Base;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel.Client;

@@ -1,7 +1,7 @@
 ﻿using System;
-using AutoLot.Dal.Models.Entities;
-using AutoLot.Dal.Models.Entities.Owned;
-using AutoLot.Dal.Models.ViewModels;
+using AutoLot.Models.Entities;
+using AutoLot.Models.Entities.Owned;
+using AutoLot.Models.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
@@ -23,9 +23,8 @@ namespace AutoLot.Dal.EfStructures
             var source = (e.FromQuery) ? "Database" : "Code";
             if (e.Entry.Entity is Car c)
             {
-                Console.WriteLine($"Blog entry {c.PetName} was added from {source}");
+                Console.WriteLine($"Car entry {c.PetName} was added from {source}");
             }
-
         }
 
         private void ChangeTracker_StateChanged(object? sender, EntityStateChangedEventArgs e)
@@ -33,7 +32,7 @@ namespace AutoLot.Dal.EfStructures
             if (e.Entry.Entity is Car c)
             {
                 var action = string.Empty;
-                Console.WriteLine($"Blog {c.PetName} was {e.OldState} before the state changed to {e.NewState}");
+                Console.WriteLine($"Car {c.PetName} was {e.OldState} before the state changed to {e.NewState}");
                 switch (e.NewState)
                 {
                     case EntityState.Added:
@@ -75,6 +74,7 @@ namespace AutoLot.Dal.EfStructures
             modelBuilder.Entity<Car>(entity => {
                 entity.HasQueryFilter(c => c.MakeId == MakeId);
             });
+
             modelBuilder.Entity<CreditRisk>(entity =>
             {
                 entity.HasOne(d => d.CustomerNavigation)
@@ -116,6 +116,7 @@ namespace AutoLot.Dal.EfStructures
                         pd.Property(p => p.LastName).HasColumnName(nameof(Person.LastName));
                     });
             });
+
             modelBuilder.Entity<Make>(entity =>
               {
                   entity.HasMany(e => e.Cars)
@@ -140,6 +141,7 @@ namespace AutoLot.Dal.EfStructures
                     .HasConstraintName("FK_Orders_Customers");
                 entity.HasIndex(cr => new { cr.CustomerId, cr.CarId }).IsUnique(true);
             });
+
             base.OnModelCreating(modelBuilder);
         }
     }

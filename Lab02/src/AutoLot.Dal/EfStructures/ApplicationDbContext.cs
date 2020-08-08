@@ -1,4 +1,12 @@
-﻿using AutoLot.Models.Entities;
+﻿// Copyright Information
+// ==================================
+// AutoLot - AutoLot.Dal - ApplicationDbContext.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2020/08/08
+// See License.txt for more information
+// ==================================
+
+using AutoLot.Models.Entities;
 using AutoLot.Models.Entities.Owned;
 using AutoLot.Models.ViewModels;
 using Microsoft.EntityFrameworkCore;
@@ -7,12 +15,12 @@ namespace AutoLot.Dal.EfStructures
 {
     public sealed class ApplicationDbContext : DbContext
     {
-        public int MakeId { get; set; }
-
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
         }
+
+        public int MakeId { get; set; }
 
         public DbSet<CreditRisk> CreditRisks { get; set; }
         public DbSet<Customer> Customers { get; set; }
@@ -23,9 +31,12 @@ namespace AutoLot.Dal.EfStructures
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Car>(entity => {
-                entity.HasQueryFilter(c => c.MakeId == MakeId);
+            modelBuilder.Entity<CustomerOrderViewModel>(entity =>
+            {
+                entity.HasNoKey().ToView("CustomerOrderView", "dbo");
             });
+
+            modelBuilder.Entity<Car>(entity => { entity.HasQueryFilter(c => c.MakeId == MakeId); });
 
             modelBuilder.Entity<CreditRisk>(entity =>
             {
@@ -70,13 +81,13 @@ namespace AutoLot.Dal.EfStructures
             });
 
             modelBuilder.Entity<Make>(entity =>
-              {
-                  entity.HasMany(e => e.Cars)
-                      .WithOne(c => c.MakeNavigation)
-                      .HasForeignKey(k => k.MakeId)
-                      .OnDelete(DeleteBehavior.Restrict)
-                      .HasConstraintName("FK_Make_Inventory");
-              });
+            {
+                entity.HasMany(e => e.Cars)
+                    .WithOne(c => c.MakeNavigation)
+                    .HasForeignKey(k => k.MakeId)
+                    .OnDelete(DeleteBehavior.Restrict)
+                    .HasConstraintName("FK_Make_Inventory");
+            });
 
             modelBuilder.Entity<Order>(entity =>
             {
@@ -91,13 +102,9 @@ namespace AutoLot.Dal.EfStructures
                     .HasForeignKey(d => d.CustomerId)
                     .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK_Orders_Customers");
-                entity.HasIndex(cr => new { cr.CustomerId, cr.CarId }).IsUnique(true);
+                entity.HasIndex(cr => new {cr.CustomerId, cr.CarId}).IsUnique(true);
             });
 
-            modelBuilder.Entity<CustomerOrderViewModel>(entity =>
-            {
-                entity.HasNoKey().ToView("CustomerOrderView", "dbo");
-            });
             base.OnModelCreating(modelBuilder);
         }
     }
