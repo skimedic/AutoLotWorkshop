@@ -25,6 +25,14 @@ namespace AutoLot.Web.Controllers
             _logger = logger;
         }
 
+        [HttpGet]
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+
         [Route("/")]
         [Route("/[controller]")]
         [Route("/[controller]/[action]")]
@@ -62,13 +70,6 @@ namespace AutoLot.Web.Controllers
         {
             var car = carRepo.Find(1);
             return View(car);
-        }
-
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

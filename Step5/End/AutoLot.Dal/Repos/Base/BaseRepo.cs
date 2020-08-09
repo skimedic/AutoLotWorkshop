@@ -4,15 +4,12 @@ using System.Linq;
 using AutoLot.Dal.EfStructures;
 using AutoLot.Dal.Exceptions;
 using AutoLot.Models.Entities.Base;
-using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Storage;
 
 namespace AutoLot.Dal.Repos.Base
 {
     public abstract class BaseRepo<T>:IRepo<T> where T: BaseEntity, new()
     {
-        private bool _isDisposed;
         private readonly bool _disposeContext;
         public DbSet<T> Table { get; }
         public ApplicationDbContext Context { get; }
@@ -21,6 +18,7 @@ namespace AutoLot.Dal.Repos.Base
         {
             Context = context;
             Table = Context.Set<T>();
+            _disposeContext = false;
         }
 
         protected BaseRepo(DbContextOptions<ApplicationDbContext> options) : this(new ApplicationDbContext(options))
@@ -34,6 +32,7 @@ namespace AutoLot.Dal.Repos.Base
             GC.SuppressFinalize(this);
         }
 
+        private bool _isDisposed;
         protected virtual void Dispose(bool disposing)
         {
             if (_isDisposed)
@@ -59,7 +58,7 @@ namespace AutoLot.Dal.Repos.Base
         public virtual T Find(int? id) => Table.Find(id);
         public virtual T FindAsNoTracking(int id)
         {
-            return Table.Where(x => x.Id == id).AsNoTracking().FirstOrDefault();
+            return Table.AsNoTracking().FirstOrDefault(x => x.Id == id);
         }
         public T FindIgnoreQueryFilters(int id) 
             => Table.IgnoreQueryFilters().FirstOrDefault(x => x.Id == id);
@@ -121,9 +120,8 @@ namespace AutoLot.Dal.Repos.Base
             }
             catch (CustomException ex)
             {
-                //A concurrency error occurred
                 //Should handle intelligently - already logged
-                throw new CustomConcurrencyException("A concurrency error happened.", ex);
+                throw;
             }
             catch (Exception ex)
             {

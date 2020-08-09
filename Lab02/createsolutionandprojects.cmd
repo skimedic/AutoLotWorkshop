@@ -41,7 +41,9 @@ dotnet add AutoLot.Models package Microsoft.EntityFrameworkCore.Abstractions -v 
 dotnet add AutoLot.Models package AutoMapper
 dotnet add AutoLot.Models package System.Text.Json
 
+dotnet add AutoLot.Dal.Tests package Microsoft.EntityFrameworkCore -v 3.1.6
 dotnet add AutoLot.Dal.Tests package Microsoft.EntityFrameworkCore.SqlServer -v 3.1.6
+dotnet add AutoLot.Dal.Tests package Microsoft.Extensions.Configuration.Json
 dotnet add AutoLot.Dal.Tests package Microsoft.NET.Test.Sdk
 dotnet add AutoLot.Dal.Tests package xunit
 dotnet add AutoLot.Dal.Tests package xunit.runner.visualstudio

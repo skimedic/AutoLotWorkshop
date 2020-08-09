@@ -1,0 +1,16 @@
+dotnet tool uninstall --global dotnet-ef
+dotnet tool install --global dotnet-ef
+
+dotnet ef database drop -f
+
+dotnet ef dbcontext scaffold "server=.,5433;Database=AutoLot;User Id=sa;Password=P@ssw0rd;" Microsoft.EntityFrameworkCore.SqlServer -d -c ApplicationDbContext --context-dir EfStructures -o Models 
+
+dotnet ef migrations add Initial -o EfStructures\Migrations -c AutoLot.Dal.EfStructures.ApplicationDbContext
+dotnet ef database update Initial -c AutoLot.Dal.EfStructures.ApplicationDbContext
+
+dotnet ef migrations add AddSQL -o EfStructures\Migrations -c AutoLot.Dal.EfStructures.ApplicationDbContext
+dotnet ef database update AddSQL -c AutoLot.Dal.EfStructures.ApplicationDbContext
+
+dotnet ef migrations remove
+
+

@@ -1,4 +1,12 @@
-﻿using System.Collections.Generic;
+﻿// Copyright Information
+// ==================================
+// AutoLot - AutoLot.Models - Car.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2020/08/08
+// See License.txt for more information
+// ==================================
+
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -7,19 +15,16 @@ using AutoLot.Models.Entities.Base;
 
 namespace AutoLot.Models.Entities
 {
-    [Table("Inventory",Schema = "Dbo")]
+    [Table("Inventory", Schema = "Dbo")]
     public partial class Car : BaseEntity
     {
-        [Required]
-        [DisplayName("Make")]
-        public int MakeId { get; set; }
+        [Required] [DisplayName("Make")] public int MakeId { get; set; }
 
         [ForeignKey(nameof(MakeId))]
         [InverseProperty(nameof(Make.Cars))]
         public Make? MakeNavigation { get; set; }
 
-        [StringLength(50),Required] 
-        public string Color { get; set; } = "Gold";
+        [StringLength(50), Required] public string Color { get; set; } = "Gold";
 
         [StringLength(50), Required]
         [DisplayName("Pet Name")]
@@ -29,15 +34,13 @@ namespace AutoLot.Models.Entities
         [InverseProperty(nameof(Order.CarNavigation))]
         public IEnumerable<Order> Orders { get; set; } = new List<Order>();
 
-        [NotMapped]
-        public string MakeColor => $"{MakeNavigation?.Name} ({Color})";
+        [NotMapped] public string MakeColor => $"{MakeNavigation?.Name} ({Color})";
+
         public override string ToString()
         {
             // Since the PetName column could be empty, supply
             // the default name of **No Name**.
             return $"{PetName ?? "**No Name**"} is a {Color} {MakeNavigation?.Name} with ID {Id}.";
         }
-
-
     }
 }

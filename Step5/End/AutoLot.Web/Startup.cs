@@ -1,3 +1,11 @@
+// Copyright Information
+// ==================================
+// AutoLot - AutoLot.Web - Startup.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2020/08/08
+// See License.txt for more information
+// ==================================
+
 using AutoLot.Dal.EfStructures;
 using AutoLot.Dal.Initialization;
 using AutoLot.Dal.Repos;
@@ -53,7 +61,6 @@ namespace AutoLot.Web
             services.AddScoped<IMakeRepo, MakeRepo>();
             services.AddScoped<IOrderRepo, OrderRepo>();
             services.Configure<DealerInfo>(Configuration.GetSection(nameof(DealerInfo)));
-
             services.TryAddSingleton<IActionContextAccessor, ActionContextAccessor>();
             services.AddHttpContextAccessor();
             if (_env.IsDevelopment() || _env.IsEnvironment("Local"))
