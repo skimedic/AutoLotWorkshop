@@ -11,11 +11,11 @@
     var bar = "Bar";
     var htmlString = "<ul><li>one</li><li>two</li></ul>";
 }
-@foo<br />
-@htmlString<br />
-@foo.@bar<br />
+@foo<br/>
+@htmlString<br/>
+@foo.@bar<br/>
 @Html.Raw(htmlString)
-<hr />
+<hr/>
 @for (int i = 0; i < 15; i++)
 {
 }
@@ -25,7 +25,7 @@
     <text>
         Lines without HTML tag
     </text>
-    <br />
+    <br/>
 }
 
 <hr/>
@@ -38,14 +38,20 @@ foo@foo.com = foo@foo.com<br/>
 test@foo = test@foo<br/>
 test@(foo) = testFoo<br/>
 <hr/>
+
 @functions {
-    public static IList<string> SortList(IList<string> strings)  {
+
+    public static IList<string> SortList(IList<string> strings)
+    {
         var list = from s in strings orderby s select s;
         return list.ToList();
     }
+
 }
+
 --------------------------------------------------------------
-@{ var myList = new List<string>  {"C", "A", "Z", "F"};
+@{
+    var myList = new List<string> {"C", "A", "Z", "F"};
     var sortedList = SortList(myList); //MyFunctions.SortList(myList)
 }
 @foreach (string s in sortedList)

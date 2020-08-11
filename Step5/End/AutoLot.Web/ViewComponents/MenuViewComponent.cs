@@ -1,4 +1,11 @@
-﻿using System.Threading.Tasks;
+﻿// Copyright Information
+// ==================================
+// AutoLot - AutoLot.Web - MenuViewComponent.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2020/08/10
+// See License.txt for more information
+// ==================================
+
 using AutoLot.Dal.Repos.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
@@ -31,6 +38,5 @@ namespace AutoLot.Web.ViewComponents
 
             return View("MenuView", makes);
         }
-
     }
 }

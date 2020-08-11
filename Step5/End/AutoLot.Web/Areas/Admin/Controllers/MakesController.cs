@@ -1,4 +1,12 @@
-﻿using System;
+﻿// Copyright Information
+// ==================================
+// AutoLot - AutoLot.Web - MakesController.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2020/08/10
+// See License.txt for more information
+// ==================================
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -21,14 +29,56 @@ namespace AutoLot.Web.Areas.Admin.Controllers
             _context = context;
         }
 
-        // GET: Admin/Makes
-        [Route("/Admin")]
-        [Route("/Admin/[controller]")]
-        [Route("/Admin/[controller]/[action]")]
-
-        public async Task<IActionResult> Index()
+        // GET: Admin/Makes/Create
+        public IActionResult Create()
         {
-            return View(await _context.Makes.ToListAsync());
+            return View();
+        }
+
+        // POST: Admin/Makes/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("Name,Id,TimeStamp")] Make make)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(make);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View(make);
+        }
+
+        // GET: Admin/Makes/Delete/5
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var make = await _context.Makes
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (make == null)
+            {
+                return NotFound();
+            }
+
+            return View(make);
+        }
+
+        // POST: Admin/Makes/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var make = await _context.Makes.FindAsync(id);
+            _context.Makes.Remove(make);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Admin/Makes/Details/5
@@ -49,28 +99,6 @@ namespace AutoLot.Web.Areas.Admin.Controllers
             return View(make);
         }
 
-        // GET: Admin/Makes/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Admin/Makes/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Name,Id,TimeStamp")] Make make)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(make);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(make);
-        }
-
         // GET: Admin/Makes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -84,6 +112,7 @@ namespace AutoLot.Web.Areas.Admin.Controllers
             {
                 return NotFound();
             }
+
             return View(make);
         }
 
@@ -117,38 +146,20 @@ namespace AutoLot.Web.Areas.Admin.Controllers
                         throw;
                     }
                 }
+
                 return RedirectToAction(nameof(Index));
             }
-            return View(make);
-        }
-
-        // GET: Admin/Makes/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var make = await _context.Makes
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (make == null)
-            {
-                return NotFound();
-            }
 
             return View(make);
         }
 
-        // POST: Admin/Makes/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        // GET: Admin/Makes
+        [Route("/Admin")]
+        [Route("/Admin/[controller]")]
+        [Route("/Admin/[controller]/[action]")]
+        public async Task<IActionResult> Index()
         {
-            var make = await _context.Makes.FindAsync(id);
-            _context.Makes.Remove(make);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return View(await _context.Makes.ToListAsync());
         }
 
         private bool MakeExists(int id)

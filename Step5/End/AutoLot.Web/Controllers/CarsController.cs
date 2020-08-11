@@ -1,4 +1,12 @@
-﻿using System.Threading.Tasks;
+﻿// Copyright Information
+// ==================================
+// AutoLot - AutoLot.Web - CarsController.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2020/08/10
+// See License.txt for more information
+// ==================================
+
+using System.Threading.Tasks;
 using AutoLot.Dal.Repos.Interfaces;
 using AutoLot.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
@@ -16,38 +24,11 @@ namespace AutoLot.Web.Controllers
             _repo = repo;
         }
 
-        internal SelectList GetMakes(IMakeRepo makeRepo)
-            => new SelectList(makeRepo.GetAll(), nameof(Make.Id), nameof(Make.Name));
-
-        internal Car GetOneCar(int? id)
-        {
-            return id == null ? null :  _repo.Find(id.Value);
-        }
-
-        [Route("/[controller]")]
-        [Route("/[controller]/[action]")]
-        public IActionResult Index()
-        {
-            return View(_repo.GetAllIgnoreQueryFilters());
-        }
-
         [HttpGet("{makeId}/{makeName}")]
         public IActionResult ByMake(int makeId, string makeName)
         {
             ViewBag.MakeName = makeName;
             return View(_repo.GetAllBy(makeId));
-        }
-
-        // GET: Cars/Details/5
-        [HttpGet("{id?}")]
-        public IActionResult Details(int? id)
-        {
-            var car = GetOneCar(id);
-            if (car == null)
-            {
-                return NotFound();
-            }
-            return View(car);
         }
 
         // GET: Cars/Create
@@ -72,6 +53,41 @@ namespace AutoLot.Web.Controllers
             return View(car);
         }
 
+        // GET: Cars/Delete/5
+        [HttpGet("{id?}")]
+        public IActionResult Delete(int? id)
+        {
+            var car = GetOneCar(id);
+            if (car == null)
+            {
+                return NotFound();
+            }
+
+            return View(car);
+        }
+
+        // POST: Cars/Delete/5
+        [HttpPost("{id}")]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(int id, Car car)
+        {
+            _repo.Delete(car);
+            return RedirectToAction(nameof(Index));
+        }
+
+        // GET: Cars/Details/5
+        [HttpGet("{id?}")]
+        public IActionResult Details(int? id)
+        {
+            var car = GetOneCar(id);
+            if (car == null)
+            {
+                return NotFound();
+            }
+
+            return View(car);
+        }
+
         // GET: Cars/Edit/5
         [HttpGet("{id?}")]
         public IActionResult Edit([FromServices] IMakeRepo makeRepo, int? id)
@@ -81,6 +97,7 @@ namespace AutoLot.Web.Controllers
             {
                 return NotFound();
             }
+
             ViewData["MakeId"] = GetMakes(makeRepo);
             return View(car);
         }
@@ -129,26 +146,19 @@ namespace AutoLot.Web.Controllers
             return View("Edit", vm);
         }
 
-        // GET: Cars/Delete/5
-        [HttpGet("{id?}")]
-        public IActionResult Delete(int? id)
+        [Route("/[controller]")]
+        [Route("/[controller]/[action]")]
+        public IActionResult Index()
         {
-            var car = GetOneCar(id);
-            if (car == null)
-            {
-                return NotFound();
-            }
-
-            return View(car);
+            return View(_repo.GetAllIgnoreQueryFilters());
         }
 
-        // POST: Cars/Delete/5
-        [HttpPost("{id}")]
-        [ValidateAntiForgeryToken]
-        public IActionResult Delete(int id, Car car)
+        internal SelectList GetMakes(IMakeRepo makeRepo)
+            => new SelectList(makeRepo.GetAll(), nameof(Make.Id), nameof(Make.Name));
+
+        internal Car GetOneCar(int? id)
         {
-            _repo.Delete(car);
-            return RedirectToAction(nameof(Index));
+            return id == null ? null : _repo.Find(id.Value);
         }
     }
 }

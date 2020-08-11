@@ -1,4 +1,12 @@
-﻿using AutoLot.Web.Controllers;
+﻿// Copyright Information
+// ==================================
+// AutoLot - AutoLot.Web - EditCarTagHelper.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2020/08/10
+// See License.txt for more information
+// ==================================
+
+using AutoLot.Web.Controllers;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.AspNetCore.Razor.TagHelpers;
