@@ -1,0 +1,13 @@
+﻿@model AutoLot.Models.Entities.Car
+@{
+    ViewData["Title"] = "Details";
+}
+<h1>Details</h1>
+<hr />
+<div>
+    @Html.DisplayForModel()
+</div>
+<div>
+    <edit-car car-id="@Model.Id"></edit-car>
+    <a asp-action="Index">Back to List</a>
+</div>
