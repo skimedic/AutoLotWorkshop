@@ -9,11 +9,11 @@ namespace AutoLot.Dal.Initialization
         public static List<Customer> Customers =>
             new List<Customer>
             {
-                new Customer {Id = 1, PersonalInformation = new Person{FirstName = "Dave", LastName = "Brenner"}},
-                new Customer {Id = 2, PersonalInformation = new Person{FirstName = "Matt", LastName = "Walton"}},
-                new Customer {Id = 3, PersonalInformation = new Person{FirstName = "Steve", LastName = "Hagen"}},
-                new Customer {Id = 4, PersonalInformation = new Person{FirstName = "Pat", LastName = "Walton"}},
-                new Customer {Id = 5, PersonalInformation = new Person{FirstName = "Bad", LastName = "Customer"}},
+                new Customer {Id = 1, PersonalInformation = new Person {FirstName = "Dave", LastName = "Brenner"}},
+                new Customer {Id = 2, PersonalInformation = new Person {FirstName = "Matt", LastName = "Walton"}},
+                new Customer {Id = 3, PersonalInformation = new Person {FirstName = "Steve", LastName = "Hagen"}},
+                new Customer {Id = 4, PersonalInformation = new Person {FirstName = "Pat", LastName = "Walton"}},
+                new Customer {Id = 5, PersonalInformation = new Person {FirstName = "Bad", LastName = "Customer"}},
             };
 
         public static List<Make> Makes => new List<Make>
@@ -25,6 +25,7 @@ namespace AutoLot.Dal.Initialization
             new Make {Id = 5, Name = "BMW"},
             new Make {Id = 6, Name = "Pinto"},
         };
+
         public static List<Car> Inventory => new List<Car>
         {
             new Car {Id = 1, MakeId = 1, Color = "Black", PetName = "Zippy"},
@@ -46,17 +47,22 @@ namespace AutoLot.Dal.Initialization
             new Order {Id = 4, CustomerId = 4, CarId = 7},
         };
 
-        public static List<CreditRisk> CreditRisks => new List<CreditRisk>
+        public static List<CreditRisk> CreditRisks
         {
-            new CreditRisk
+            get
             {
-                Id = 1,
-                CustomerId = Customers[4].Id,
-                PersonalInformation = new Person{
-                    FirstName = Customers[4].PersonalInformation.FirstName,
-                LastName = Customers[4].PersonalInformation.LastName
-                }
+                var cr = new CreditRisk
+                {
+                    Id = 1,
+                    CustomerId = 4,
+                    PersonalInformation =
+                    {
+                        FirstName = "Fred",
+                        LastName = "Flinstone"
+                    },
+                };
+                return new List<CreditRisk> { cr};
             }
-        };
+        }
     }
 }
