@@ -14,8 +14,8 @@ namespace AutoLot.Models.Entities.Owned
     [Owned]
     public class Person
     {
-        [Required, StringLength(50)] public string FirstName { get; set; }
+        [Required, StringLength(50)] public string FirstName { get; set; } = "New";
 
-        [Required, StringLength(50)] public string LastName { get; set; }
+        [Required, StringLength(50)] public string LastName { get; set; } = "Customer";
     }
 }

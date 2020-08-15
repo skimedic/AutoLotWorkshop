@@ -6,15 +6,9 @@
 // See License.txt for more information
 // ==================================
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using AutoLot.Dal.EfStructures;
 using AutoLot.Models.Entities;
+using AutoLot.Dal.Repos.Interfaces;
 
 namespace AutoLot.Web.Areas.Admin.Controllers
 {
@@ -22,11 +16,20 @@ namespace AutoLot.Web.Areas.Admin.Controllers
     [Route("Admin/[controller]/[action]")]
     public class MakesController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IMakeRepo _repo;
 
-        public MakesController(ApplicationDbContext context)
+        public MakesController(IMakeRepo repo)
         {
-            _context = context;
+            _repo = repo;
+        }
+
+        // GET: Admin/Makes
+        [Route("/Admin")]
+        [Route("/Admin/[controller]")]
+        [Route("/Admin/[controller]/[action]")]
+        public IActionResult Index()
+        {
+            return View(_repo.GetAll());
         }
 
         // GET: Admin/Makes/Create
@@ -40,57 +43,22 @@ namespace AutoLot.Web.Areas.Admin.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Name,Id,TimeStamp")] Make make)
+        public IActionResult Create([Bind("Name,Id,TimeStamp")] Make make)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Add(make);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-
-            return View(make);
-        }
-
-        // GET: Admin/Makes/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var make = await _context.Makes
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (make == null)
-            {
-                return NotFound();
-            }
-
-            return View(make);
-        }
-
-        // POST: Admin/Makes/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var make = await _context.Makes.FindAsync(id);
-            _context.Makes.Remove(make);
-            await _context.SaveChangesAsync();
+            if (!ModelState.IsValid) return View(make);
+            _repo.Add(make);
             return RedirectToAction(nameof(Index));
         }
 
         // GET: Admin/Makes/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public IActionResult Details(int? id)
         {
             if (id == null)
             {
-                return NotFound();
+                return BadRequest();
             }
 
-            var make = await _context.Makes
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var make = _repo.Find(id.Value);
             if (make == null)
             {
                 return NotFound();
@@ -100,14 +68,14 @@ namespace AutoLot.Web.Areas.Admin.Controllers
         }
 
         // GET: Admin/Makes/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public IActionResult Edit(int? id)
         {
             if (id == null)
             {
-                return NotFound();
+                return BadRequest();
             }
 
-            var make = await _context.Makes.FindAsync(id);
+            var make = _repo.Find(id.Value);
             if (make == null)
             {
                 return NotFound();
@@ -121,50 +89,44 @@ namespace AutoLot.Web.Areas.Admin.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Name,Id,TimeStamp")] Make make)
+        public IActionResult Edit(int id, [Bind("Name,Id,TimeStamp")] Make make)
         {
             if (id != make.Id)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            _repo.Update(make);
+            return RedirectToAction(nameof(Index));
+        }
+        // GET: Admin/Makes/Delete/5
+        public IActionResult Delete(int? id)
+        {
+            if (id == null)
             {
-                try
-                {
-                    _context.Update(make);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!MakeExists(make.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                return BadRequest();
+            }
 
-                return RedirectToAction(nameof(Index));
+            var make = _repo.Find(id.Value);
+            if (make == null)
+            {
+                return NotFound();
             }
 
             return View(make);
         }
 
-        // GET: Admin/Makes
-        [Route("/Admin")]
-        [Route("/Admin/[controller]")]
-        [Route("/Admin/[controller]/[action]")]
-        public async Task<IActionResult> Index()
+        // POST: Admin/Makes/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(int id, Make make)
         {
-            return View(await _context.Makes.ToListAsync());
-        }
-
-        private bool MakeExists(int id)
-        {
-            return _context.Makes.Any(e => e.Id == id);
+            if (id != make.Id)
+            {
+                return BadRequest();
+            }
+            _repo.Delete(make);
+            return RedirectToAction(nameof(Index));
         }
     }
 }

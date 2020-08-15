@@ -47,22 +47,17 @@ namespace AutoLot.Dal.Initialization
             new Order {Id = 4, CustomerId = 4, CarId = 7},
         };
 
-        public static List<CreditRisk> CreditRisks
+        public static List<CreditRisk> CreditRisks => new List<CreditRisk>
         {
-            get
+            new CreditRisk
             {
-                var cr = new CreditRisk
-                {
-                    Id = 1,
-                    CustomerId = 4,
-                    PersonalInformation =
-                    {
-                        FirstName = "Fred",
-                        LastName = "Flinstone"
-                    },
-                };
-                return new List<CreditRisk> { cr};
+                Id = 1,
+                CustomerId = Customers[4].Id,
+                PersonalInformation = new Person{
+                    FirstName = Customers[4].PersonalInformation.FirstName,
+                LastName = Customers[4].PersonalInformation.LastName
+                }
             }
-        }
+        };
     }
 }

@@ -104,18 +104,6 @@ namespace AutoLot.Dal.EfStructures
                     .HasForeignKey(d => d.CustomerId)
                     .HasConstraintName("FK_CreditRisks_Customers");
 
-                entity
-                    .Property<string>(nameof(Person.FirstName))
-                    .HasColumnName(nameof(Person.FirstName))
-                    .HasMaxLength(50)
-                    .IsRequired(true);
-
-                entity
-                    .Property<string>(nameof(Person.LastName))
-                    .HasColumnName(nameof(Person.LastName))
-                    .HasMaxLength(50)
-                    .IsRequired(true);
-
                 entity.OwnsOne(o => o.PersonalInformation,
                     pd =>
                     {
@@ -126,7 +114,6 @@ namespace AutoLot.Dal.EfStructures
                             .HasColumnName(nameof(Person.LastName))
                             .HasColumnType("nvarchar(50)");
                     });
-                entity.HasIndex(nameof(Person.FirstName), nameof(Person.LastName)).IsUnique(true);
             });
 
             modelBuilder.Entity<Customer>(entity =>

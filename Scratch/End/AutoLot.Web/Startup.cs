@@ -2,7 +2,7 @@
 // ==================================
 // AutoLot - AutoLot.Web - Startup.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2020/08/10
+// http://www.skimedic.com 2020/08/08
 // See License.txt for more information
 // ==================================
 
