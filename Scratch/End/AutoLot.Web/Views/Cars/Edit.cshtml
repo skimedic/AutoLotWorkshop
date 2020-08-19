@@ -6,7 +6,7 @@
 <hr/>
 <div class="row">
     <div class="col-md-4">
-        <form asp-area="" asp-controller="Cars" asp-action="Edit2" asp-route-id="@Model.Id">
+        <form asp-area="" asp-controller="Cars" asp-action="Edit" asp-route-id="@Model.Id">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             @Html.EditorForModel()
             <input type="hidden" asp-for="Id"/>
