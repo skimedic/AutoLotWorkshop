@@ -6,6 +6,7 @@
 // See License.txt for more information
 // ==================================
 
+using System;
 using AutoLot.Dal.EfStructures;
 using AutoLot.Dal.Initialization;
 using AutoLot.Dal.Repos;
@@ -92,7 +93,7 @@ namespace AutoLot.Web
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment() || env.IsEnvironment("Local"))
+            if (env.IsDevelopment() || env.EnvironmentName.Equals("Local",StringComparison.CurrentCultureIgnoreCase))
             {
                 app.UseDeveloperExceptionPage();
                 using var serviceScope =

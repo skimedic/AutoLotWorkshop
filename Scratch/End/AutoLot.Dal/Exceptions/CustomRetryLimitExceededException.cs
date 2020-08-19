@@ -6,7 +6,6 @@
 // See License.txt for more information
 // ==================================
 
-using System;
 using Microsoft.EntityFrameworkCore.Storage;
 
 namespace AutoLot.Dal.Exceptions
